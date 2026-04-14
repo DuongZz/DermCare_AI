@@ -3,7 +3,7 @@ FROM python:3.10-slim
 
 # Cài đặt các thư viện hệ thống cần thiết cho OpenCV và các gói AI
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     gcc \
     python3-dev \
