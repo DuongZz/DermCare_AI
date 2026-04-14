@@ -1,0 +1,34 @@
+# Python junk
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+
+# Logs
+*.log
+server_error.log*
+
+# Models (Keep specific models if needed, but usually exclude large ones)
+# models/*.pt  <- Only keep if you want them on Hugging Face Space (user seems to want best1.pt)
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
