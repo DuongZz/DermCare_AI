@@ -40,6 +40,7 @@ async def analyze_skin(
             img_result = await analyze_skin_image(contents, file.content_type)
         except Exception as e:
             print(f"[AI] Lỗi xử lý ảnh: {e}")
+            raise HTTPException(status_code=500, detail=f"Lỗi xử lý ảnh AI: {str(e)}")
 
     # 2. Xử lý văn bản nếu có
     if description:
@@ -47,6 +48,9 @@ async def analyze_skin(
             nlp_result = await analyze_text_description(description)
         except Exception as e:
             print(f"[NLP] Lỗi xử lý văn bản: {e}")
+            # Nếu chỉ có mô tả mà mô tả lỗi thì báo lỗi luôn
+            if not file:
+                raise HTTPException(status_code=500, detail=f"Lỗi xử lý văn bản AI: {str(e)}")
 
     # 3. Tổng hợp kết quả (Hybrid Late Fusion Logic)
     if img_result and nlp_result:
