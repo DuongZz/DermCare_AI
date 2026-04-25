@@ -5,9 +5,11 @@ load_dotenv()
 
 from app.services.rag_service import rag_service
 
+import sys
+
 async def main():
     print("--- RAG DIAGNOSTIC TEST ---")
-    question = "Vảy nến là gì?"
+    question = sys.argv[1] if len(sys.argv) > 1 else "Vảy nến là gì?"
     try:
         print(f"Querying: {question}")
         result = await rag_service.query(question)

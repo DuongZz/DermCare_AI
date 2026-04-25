@@ -15,3 +15,9 @@ transformers==4.36.2
 ultralytics==8.0.222
 pyvi==0.1.1
 opencv-python-headless==4.8.1.78
+
+# LangChain & LangGraph
+langchain
+langchain-google-genai
+langgraph
+langchain-community
